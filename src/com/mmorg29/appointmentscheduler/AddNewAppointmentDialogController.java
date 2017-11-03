@@ -92,7 +92,7 @@ public class AddNewAppointmentDialogController implements Initializable {
                     "Exit Consultation"
             );
 
-    //mam tests if the required appointment info fields are complete
+    //mam tests if the required piece of appointment info is entered
     private final Predicate<Object> NOT_VALID = (input) -> {
         if (input == null) {
             return true;
@@ -128,7 +128,7 @@ public class AddNewAppointmentDialogController implements Initializable {
         return isValid;
     };
 
-    //mam converts a string to a LocalTime object
+    //mam converts a string of "h:mm a" format to a LocalTime object
     private final Function<String, LocalTime> TO_LOCAL_TIME = (timeStr) -> LocalTime.parse(timeStr, DateTimeFormatter.ofPattern("h:mm a"));
 
     /**
@@ -257,7 +257,7 @@ public class AddNewAppointmentDialogController implements Initializable {
         try {
             LocalDate selectedDate = this.start_date_picker.getValue();
             if (selectedDate != null && selectedDate.isBefore(LocalDate.now())) {
-                this.start_date_picker.getEditor().clear();
+                //this.start_date_picker.getEditor().clear();
                 throw new InvalidAppointmentInfoException("Can not schedule appointments in the past.");
             }
             ObservableList<String> timeSlots = loadTimeSlots(LocalTime.MIDNIGHT.plusHours(8));
@@ -281,16 +281,7 @@ public class AddNewAppointmentDialogController implements Initializable {
                     this.start_time_selector_combo_box.setItems(timeSlots);
                 }
             } catch (SQLException sqlEx) {
-                Alert alert = new Alert(AlertType.ERROR, "Something went wrong and the application is unable to add appointments.", ButtonType.OK);
-                alert.initStyle(StageStyle.UNDECORATED);
-                alert.initModality(Modality.APPLICATION_MODAL);
-                alert.showAndWait()
-                        .filter(response -> response == ButtonType.OK)
-                        .ifPresent(response -> {
-                            alert.close();
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.close();
-                        });
+                throw new InvalidAppointmentInfoException("Something went wrong and the application is unable to add the appointment.");
             }
         } catch (InvalidAppointmentInfoException iaiEx) {
             Alert alert = new Alert(AlertType.ERROR, iaiEx.getMessage(), ButtonType.OK);
@@ -312,8 +303,7 @@ public class AddNewAppointmentDialogController implements Initializable {
      * Warns User if no open time slots are available.
      */
     @FXML
-    private void handleStartTimeSelectorComboBoxOnAction(ActionEvent event
-    ) {
+    private void handleStartTimeSelectorComboBoxOnAction(ActionEvent event) {
         this.end_time_selector_combo_box.getItems().clear();
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
         LocalTime startTime = this.TO_LOCAL_TIME.apply(this.start_time_selector_combo_box.getValue());
@@ -342,11 +332,10 @@ public class AddNewAppointmentDialogController implements Initializable {
      * mam
      * Handles the GUI event for the add new appointments button.
      * Validates that the required appointment info is complete.
-     * Adds the new appointment and updates the Monthly and Weekly schedule displays if needed
+     * Adds the new appointment to the DailyAgenda object if the appointment date is being displayed
      */
     @FXML
-    private void handleAddBtnOnAction(ActionEvent event
-    ) {
+    private void handleAddBtnOnAction(ActionEvent event) {
         try {
             if (FORM_IS_VALID.getAsBoolean()) {
                 LocalDate appointmentDate = start_date_picker.getValue();
@@ -380,12 +369,11 @@ public class AddNewAppointmentDialogController implements Initializable {
     /**
      * mam
      * Handles the GUI event for the cancel button.
-     * Closes the add new appointments dialog without adding a  new appointment.
+     * Closes the add new appointments dialog without adding a new appointment.
      * @param event 
      */
     @FXML
-    private void handleCancelBtnOnAction(ActionEvent event
-    ) {
+    private void handleCancelBtnOnAction(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
