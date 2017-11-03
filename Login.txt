@@ -1,0 +1,12 @@
+Oct 25, 2017 3:16:57 PM com.mmorg29.appointmentscheduler.LoginFormController loadMainForm
+INFO: Successful login for: test
+Oct 25, 2017 3:26:02 PM com.mmorg29.appointmentscheduler.AppointmentScheduler stop
+INFO: test has logged out
+Oct 25, 2017 3:36:28 PM com.mmorg29.appointmentscheduler.LoginFormController loadMainForm
+INFO: Successful login for: test
+Oct 25, 2017 3:42:56 PM com.mmorg29.appointmentscheduler.AppointmentScheduler stop
+INFO: test has logged out
+Oct 25, 2017 3:44:59 PM com.mmorg29.appointmentscheduler.LoginFormController loadMainForm
+INFO: Successful login for: test
+Oct 25, 2017 3:53:32 PM com.mmorg29.appointmentscheduler.AppointmentScheduler stop
+INFO: test has logged out

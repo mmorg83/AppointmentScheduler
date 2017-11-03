@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="add_new_appointment_vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmorg29.appointmentscheduler.AddNewAppointmentDialogController">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Customer:*" />
+            <ComboBox fx:id="customer_selector_combo_box" editable="true" prefWidth="539.0" promptText="Select Customer..." />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Date:*" />
+            <DatePicker fx:id="start_date_picker" editable="false" onAction="#handleStartDatePickerOnAction" promptText="Select Date..." />
+            <Label text="\@:*" />
+            <ComboBox fx:id="start_time_selector_combo_box" editable="true" onAction="#handleStartTimeSelectorComboBoxOnAction" prefWidth="142.0" promptText="Select Start Time..." />
+            <Label text="To:*" />
+            <ComboBox fx:id="end_time_selector_combo_box" editable="true" prefWidth="142.0" promptText="Select End Time..." />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Type:*" />
+            <ComboBox fx:id="type_selector_combo_box" editable="true" prefWidth="225.0" promptText="Enter/Select Type..." />
+            <Label alignment="CENTER_RIGHT" text="Location:" />
+            <TextField fx:id="location_text_field" prefWidth="246.0" promptText="Enter Location..." />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" />
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Contact Name:" />
+            <TextField fx:id="contact_text_field" prefWidth="540.0" promptText="Enter Location..." />
+         </children>
+      </HBox>
+      <HBox spacing="10.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Description:" />
+            <TextField fx:id="description_text_field" prefWidth="540.0" promptText="Enter Location..." />
+         </children>
+      </HBox>
+      <ButtonBar>
+        <buttons>
+          <Button fx:id="add_button" mnemonicParsing="false" onAction="#handleAddBtnOnAction" text="Add">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancel_button" mnemonicParsing="false" onAction="#handleCancelBtnOnAction" text="Cancel">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+        </buttons>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+</VBox>

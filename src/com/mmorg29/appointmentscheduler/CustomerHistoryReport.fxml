@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmorg29.appointmentscheduler.CustomerHistoryReportController">
+   <children>
+      <HBox alignment="CENTER" style="-fx-background-color: #1FBED6;">
+         <children>
+            <ComboBox fx:id="customer_selector" onAction="#handleCustomerSelectorOnAction" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+         </children>
+         <padding>
+            <Insets bottom="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <ListView fx:id="customer_history_list_view" fixedCellSize="115.0" stylesheets="@../../../css/listView.css" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets left="4.0" right="4.0" />
+         </VBox.margin>
+      </ListView>
+   </children>
+   <padding>
+      <Insets bottom="4.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmorg29.appointmentscheduler.LoginFormController">
+   <children>
+      <Label fx:id="welcome_message_lbl" alignment="TOP_LEFT" text="%welcome_message_lbl" textFill="BLUE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="250.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="login_error_message_lbl" text="%login_error_message_lbl" textFill="RED">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="login_username_lbl" prefHeight="20.0" prefWidth="200.0" text="%login_username_lbl">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="login_username_input" prefWidth="200.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="25.0" />
+         </VBox.margin>
+      </TextField>
+      <Label fx:id="login_password_lbl" prefHeight="20.0" prefWidth="200.0" text="%login_password_lbl">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="login_password_input" onKeyPressed="#handlePasswordEnterKey" prefHeight="25.0" prefWidth="200.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="25.0" />
+         </VBox.margin>
+      </PasswordField>
+      <Button fx:id="login_submit_btn" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="%login_submit_btn">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+   <padding>
+      <Insets top="150.0" />
+   </padding>
+</VBox>

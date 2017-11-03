@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 13, 2017, 2:39:47 PM
+    Author     : mmorg
+*/
+
+.table-row-cell:odd {
+    -fx-background-color: #d4e2f9;
+}
+
+.table-row-cell:selected:focused, table-row-cell:selected {
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white;
+}
+
+.table-column {
+    -fx-border-style: solid;
+    -fx-border-width: .25;
+    -fx-border-color: black;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER;
+}

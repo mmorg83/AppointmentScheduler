@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmorg29.appointmentscheduler.DailyAgendaViewDialogController">
+   <children>
+      <Label fx:id="date_label" text="Label">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ListView fx:id="daily_agenda_list_view" fixedCellSize="125.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="700.0" stylesheets="@../../../css/listView.css" VBox.vgrow="SOMETIMES" />
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="remove_button" mnemonicParsing="false" onAction="#handleRemoveOnAction" text="Remove" />
+            <Button fx:id="close_button" mnemonicParsing="false" onAction="#handleCloseOnAction" text="Close" />
+        </buttons>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets left="4.0" right="4.0" />
+   </padding>
+</VBox>
